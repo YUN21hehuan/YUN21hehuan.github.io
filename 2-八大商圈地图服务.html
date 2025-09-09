@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宁逛|地图服务</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <!-- 引入Font Awesome用于下拉菜单图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript">
+    window._AMapSecurityConfig = {
+        securityJsCode: "4d8d783a5463853e63b0af39aa503379",
+    };
+    </script>
+    <!-- 添加JS错误处理 -->
+    <script>
+    window.onAMapLoadError = function(error) {
+        console.error('高德地图加载失败:', error);
+        // 可以在这里添加错误处理逻辑
+    };
+    </script>
+    <script src="https://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script
+    type="text/javascript"
+    src="//webapi.amap.com/maps?v=2.0&key=c43b5af1cea9dce07e948a07b5b91b9b&&plugin=AMap.Scale,AMap.HawkEye,AMap.ToolBar,AMap.ControlBar,AMap.Weather"
+    onerror="window.onAMapLoadError && window.onAMapLoadError(event)"
+    ></script>
+    <style>
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
+        background-image: url("../src/components/images/a.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .container-wrapper {
+        width: 95%;
+        height: 80vh;
+        max-width: 1000px;
+        display: flex;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+    }
+    
+    .header {
+        padding: 15px 20px;
+        background: rgba(0, 0, 0, 0.2);
+        color: white;
+        text-align: center;
+    }
+    
+    .header h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    
+    /* 调整地图容器为弹性布局，用于容纳地图和天气预报面板 */
+    #map-container {
+        flex: 1;
+        display: flex;
+        width: 100%;
+    }
+    
+    #container {
+        flex: 2; /* 地图占2/3宽度 */
+        width: 100%;
+    }
+    
+    /* 天气预报面板样式 */
+    .info {
+        flex: 1; /* 天气预报面板占1/3宽度 */
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        font-size: 0.9rem;
+        overflow-y: auto;
+        display: block; /* 默认显示天气预报面板 */
+    }
+    
+    .info h4 {
+        margin-top: 0;
+        color: #0091ff;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 8px;
+    }
+    
+    .info hr {
+        border: none;
+        border-top: 1px solid #eee;
+        margin: 10px 0;
+    }
+    
+    .info p {
+        margin: 8px 0;
+        line-height: 1.5;
+    }
+    
+    .coordinates {
+        display: flex;
+        gap: 15px;
+    }
+    
+    @media (max-width: 768px) {
+        .container-wrapper {
+            width: 95%;
+            height: 65vh;
+        }
+        /* 移动端调整为垂直布局 */
+        #map-container {
+            flex-direction: column;
+        }
+        #container, .info {
+            flex: none;
+            height: 50%;
+        }
+    }
+    
+    .input-card {
+        width: 200px; /* 加宽工具条宽度以容纳按钮 */
+        top: 20px;
+        left: 20px;
+        bottom: auto;
+        padding: 0 5px; /* 减少内边距避免溢出 */
+        height: 350px;
+    }
+    
+    /* 调整输入项内边距，确保内容不溢出 */
+    .input-item {
+        padding: 5px; /* 优化内边距，确保按钮不超出 */
+        box-sizing: border-box; /* 确保padding不会增加总宽度 */
+    }
+    
+    /* 统一控制各功能区块的间距 */
+    .traffic-control, .weather-control, .business-district-control {
+        margin-top: 15px; /* 统一间距 */
+        padding-top: 15px;
+        border-top: 1px solid rgba(255,255,255,0.3);
+    }
+    
+    /* 按钮样式调整 - 统一大小和字体 */
+    .btn, .dropdown-btn {
+        width: 100%;
+        padding: 10px 0; /* 保持按钮大小 */
+        background-color: #0091ff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 1rem; /* 保持字体大小 */
+        box-sizing: border-box; /* 确保按钮大小一致 */
+    }
+    
+    .btn:hover, .dropdown-btn:hover {
+        background-color: #0078d7;
+    }
+    
+    /* 天气预报图标和信息窗口样式 */
+    .weather {
+        width: 5rem;
+        display: inline-block;
+        padding-left: 0.5rem;
+    }
+    
+    .sharp {
+        height: 1rem;
+        width: 1rem;
+        background-color: white;
+        transform: rotateZ(45deg);
+        box-shadow: 2px 2px 3px rgba(114, 124, 245, .5);
+        position: inherit;
+        margin-left: 10.5rem;
+        margin-top: -6px;
+    }
+    
+    /* 商圈标签样式 */
+    .business-label {
+        background-color: #5599FF;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 1.2rem;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+    
+    /* 下拉菜单样式 */
+    .dropdown {
+        position: relative;
+        width: 100%; /* 确保下拉菜单与工具条同宽 */
+        margin-top: 0; /* 取消额外的上边距，由父容器统一控制 */
+        box-sizing: border-box; /* 确保宽度计算正确 */
+    }
+    
+    .dropdown-btn {
+  /* 将元素设置为flex布局容器，使其子元素可以灵活排列 */
+  display: flex;
+  
+  /* 使flex容器内的子元素在主轴方向上居中对齐 */
+  /* 注释说明：将space-between改为center，让所有子元素整体居中 */
+  justify-content: center;
+  
+  /* 使flex容器内的子元素在交叉轴方向上居中对齐 */
+  align-items: center;
+  
+  /* 设置元素的内边距为10px */
+  /* 注释说明：这样设置是为了与其他按钮保持一致的内边距，保证视觉统一性 */
+  padding: 10px; /* 与按钮保持一致的内边距 */
+}
+
+/* 为下拉按钮中的文本添加居中样式 */
+.dropdown-btn .text-content {
+  /* 让文本自身在其容器中居中 */
+  text-align: center;
+  /* 注释说明：确保文本内容在其占据的空间内水平居中 */
+  
+  /* 可以根据需要添加适当的宽度，确保文本有足够空间居中 */
+  flex: 1; /* 注释说明：让文本区域占据可用空间，确保居中效果 */
+}
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 0 0 4px 4px;
+        z-index: 100;
+        margin-top: 2px;
+    }
+    
+    .dropdown-content button {
+        width: 100%;
+        padding: 7px 10px;
+        text-align: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        font-size: 0.85rem;
+        color: #333;
+    }
+    
+    .dropdown-content button:hover {
+        background-color: #f0f7ff;
+        color: #0091ff;
+    }
+    
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+    
+    .dropdown.active .dropdown-btn i {
+        transform: rotate(180deg);
+        transition: transform 0.3s;
+    }
+    </style>
+</head>
+<body>
+    <div class="container-wrapper">
+        <div class="header">
+            <h1>八大商圈地图服务</h1>
+        </div>
+        <!-- 调整容器结构，新增地图与天气预报的父容器 -->
+        <div id="map-container">
+            <div id="container"></div>
+            <!-- 天气预报面板 -->
+            <div class="info" id="weatherPanel">
+                <h4>预报天气</h4><hr>
+                <p id='forecast'></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class='input-card'>
+        <div class="input-item">
+            <input type="checkbox" checked onclick="toggleScale(this)"/>比例尺
+        </div>
+        
+        <div class="input-item">
+            <input type="checkbox" checked id="toolbar" onclick="toggleToolBar(this)"/>工具条
+        </div>
+        
+        <div class="input-item">
+            <input type="checkbox" checked id="controlBar" onclick="toggleControlBar(this)"/>工具条方向盘
+        </div>
+        
+        <div class="input-item">
+            <input type="checkbox" checked id="overview" onclick="toggleOverViewShow(this)"/>显示鹰眼
+        </div>
+        
+        <!-- 调整顺序：实时路况 → 天气预报 → 下拉菜单 -->
+        <!-- 实时路况控制按钮 -->
+        <div class="input-item traffic-control">
+            <button class="btn" id="trafficBtn">隐藏实时路况</button>
+        </div>
+        
+        <!-- 天气预报控制按钮 -->
+        <div class="input-item weather-control">
+            <button class="btn" id="weatherBtn">隐藏天气预报</button>
+        </div>
+        
+        <!-- 商圈下拉菜单 -->
+        <div class="input-item business-district-control">
+            <div class="dropdown" id="businessDistrictDropdown">
+                <button class="dropdown-btn">
+                    选择商圈 <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <!-- 下面是各个商圈的按钮，第一个参数是标签显示的文本，可直接修改 -->
+                    <button onclick="goToBusinessDistrict('新街口商圈:<br>德基广场、中央商场、新百等', [118.784136, 32.041806])">新街口商圈</button>
+                    
+                    <button onclick="goToBusinessDistrict('夫子庙商圈:<br>水游城、水平方、万象天地等', [118.781871, 32.021797])">夫子庙商圈</button>
+                    
+                    <button onclick="goToBusinessDistrict('元通商圈:<br>IFC、华采天地、龙湖河西天街等', [118.7211449, 31.995371])">元通商圈</button>
+                    
+                    <button onclick="goToBusinessDistrict('江东商圈:<br>金鹰世界、建邺万达广场等', [118.73968, 32.028573])">江东商圈</button>
+                    
+                    <button onclick="goToBusinessDistrict('江北商圈:<br>江北虹悦城、宝龙时代广场等', [118.642525, 32.06958])">江北商圈</button>
+                    
+                    <button onclick="goToBusinessDistrict('桥北商圈:<br>南京弘阳广场、桥北万象汇等', [118.726639, 32.134721])">桥北商圈</button>
+                    
+                    <button onclick="goToBusinessDistrict('百家湖商圈:<br>景枫中心、金鹰天地广场等', [118.820845, 31.931942])">百家湖商圈</button>
+                    
+                    <button onclick="goToBusinessDistrict('仙林商圈:<br>金鹰湖滨天地、九霄梦天地等', [118.930412, 32.098663])">仙林商圈</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // 初始化地图
+    var map = new AMap.Map('container',{ 
+        center:[118.79,32.06],
+        zoom:12,
+        viewMode:'3D',
+        resizeEnable: true // 允许地图尺寸自适应
+    });
+    
+    // 存储商圈标记点和信息窗口
+    var businessMarker = null;
+    var businessInfoWindow = null;
+    
+    // 下拉菜单切换
+    document.getElementById('businessDistrictDropdown').addEventListener('click', function() {
+        this.classList.toggle('active');
+    });
+    
+    // 点击其他区域关闭下拉菜单
+    document.addEventListener('click', function(event) {
+        var dropdown = document.getElementById('businessDistrictDropdown');
+        if (!dropdown.contains(event.target)) {
+            dropdown.classList.remove('active');
+        }
+    });
+    
+    // ---------------------- 1. 商圈定位功能 - 通用函数 ----------------------
+    // name参数：标签显示的文本内容
+    // coords参数：商圈的经纬度坐标
+    function goToBusinessDistrict(name, coords) {
+        // 移动地图中心到指定商圈
+        map.setCenter(coords);
+        map.setZoom(16);
+        
+        // 移除已有的商圈标记和信息窗口（如果存在）
+        if (businessMarker) {
+            map.remove(businessMarker);
+        }
+        if (businessInfoWindow) {
+            businessInfoWindow.close();
+        }
+        
+        // 创建新的标记点
+        var customIcon = new AMap.Icon({
+            size: new AMap.Size(32, 32),
+            image: '/D:/STUDY/HTML/picture/mark_bs.png',
+            imageSize: new AMap.Size(32, 32)
+        });
+        
+        // 添加标记到地图
+        businessMarker = new AMap.Marker({
+            map: map,
+            position: coords,
+            icon: customIcon,
+            zIndex: 20 // 确保标记在其他图层上方
+        });
+        
+        // 创建商圈信息窗口（文本标签）
+        businessInfoWindow = new AMap.InfoWindow({
+            content: '<div class="business-label">' + name + '</div>', // 这里使用传入的name参数作为标签内容
+            isCustom: true,
+            offset: new AMap.Pixel(0, -40), // 调整标签位置，使其显示在图标上方
+            autoMove: false
+        });
+        
+        // 在标记点上打开信息窗口（文本标签）
+        businessInfoWindow.open(map, businessMarker.getPosition());
+        
+        // 为标记点添加鼠标事件，点击时重新显示标签
+        businessMarker.on('click', function() {
+            businessInfoWindow.open(map, businessMarker.getPosition());
+        });
+        
+        // 关闭下拉菜单
+        document.getElementById('businessDistrictDropdown').classList.remove('active');
+    }
+    
+    // ---------------------- 2. 实时路况功能 ----------------------
+    var trafficLayer = new AMap.TileLayer.Traffic({
+        zIndex: 10,
+        zooms: [7, 22],
+    });
+    trafficLayer.setMap(map);
+    var isTrafficVisible = true;
+    
+    // 切换实时路况显示状态
+    function toggleTraffic() {
+        if (isTrafficVisible) {
+            trafficLayer.hide();
+            document.getElementById('trafficBtn').textContent = "显示实时路况";
+        } else {
+            trafficLayer.show();
+            document.getElementById('trafficBtn').textContent = "隐藏实时路况";
+        }
+        isTrafficVisible = !isTrafficVisible;
+    }
+    document.getElementById('trafficBtn').addEventListener('click', toggleTraffic);
+    
+    // ---------------------- 3. 地图控件功能（比例尺、工具条等） ----------------------
+    var scale = new AMap.Scale(),
+    toolBar = new AMap.ToolBar({
+        position: {
+            top: '110px',
+            right: '40px'
+        }
+    }),
+    controlBar = new AMap.ControlBar({
+        position: {
+            top: '10px',
+            right: '10px',
+        }
+    }),
+    overView = new AMap.HawkEye({
+        opened: false
+    });
+    
+    map.addControl(scale);
+    map.addControl(toolBar);
+    map.addControl(controlBar);
+    map.addControl(overView);
+    
+    // 控件切换函数
+    function toggleScale(checkbox) {
+        checkbox.checked ? scale.show() : scale.hide();
+    }
+    
+    function toggleToolBar(checkbox) {
+        if (checkbox.checked) {
+            showToolBar();
+        } else {
+            hideToolBar();
+        }
+    }
+    
+    function toggleControlBar(checkbox) {
+        checkbox.checked ? controlBar.show() : controlBar.hide();
+    }
+    
+    function toggleOverViewShow(checkbox) {
+        checkbox.checked ? overView.show() : overView.hide();
+    }
+    
+    function showToolBar() {
+        document.getElementById('toolbar').checked = true;
+        toolBar.show();
+    }
+    
+    function hideToolBar() {
+        document.getElementById('toolbar').checked = false;
+        toolBar.hide();
+    }
+    
+    function showControlBar() {
+        document.getElementById('controlBar').checked = true;
+        controlBar.show();
+    }
+    
+    function hideControlBar() {
+        document.getElementById('controlBar').checked = false;
+        controlBar.hide();
+    }
+    
+    // ---------------------- 4. 天气预报功能 ----------------------
+    var isWeatherVisible = true; // 天气预报面板默认显示
+    var weatherMarker = null; // 存储天气标记点
+    var weatherInfoWin = null; // 存储天气信息窗口
+    
+    // 初始化天气预报
+    function initWeather() {
+        AMap.plugin('AMap.Weather', function() {
+            var weather = new AMap.Weather();
+            
+            // 1. 查询实时天气（显示在地图标记的信息窗口中）
+            weather.getLive('南京市', function(err, data) {
+                if (!err) {
+                    var liveStr = [];
+                    liveStr.push('<h4>实时天气</h4><hr>');
+                    liveStr.push('<p>城市/区：' + data.city + '</p>');
+                    liveStr.push('<p>天气：' + data.weather + '</p>');
+                    liveStr.push('<p>温度：' + data.temperature + '℃</p>');
+                    liveStr.push('<p>风向：' + data.windDirection + '</p>');
+                    liveStr.push('<p>风力：' + data.windPower + ' 级</p>');
+                    liveStr.push('<p>空气湿度：' + data.humidity + '</p>');
+                    liveStr.push('<p>发布时间：' + data.reportTime + '</p>');
+                    
+                    // 自定义天气标记图标
+                    var customIcon = new AMap.Icon({
+                        size: new AMap.Size(32, 32),
+                        image: '/D:/STUDY/HTML/picture/mark_bs.png', // 确保图标路径正确
+                        imageSize: new AMap.Size(32, 32)
+                    });
+                    
+                    // 创建标记点（在地图中心）
+                    weatherMarker = new AMap.Marker({
+                        map: map,
+                        position: map.getCenter(),
+                        icon: customIcon,
+                        zIndex: 15 // 确保标记在路况图层上方
+                    });
+                    
+                    // 创建天气信息窗口
+                    weatherInfoWin = new AMap.InfoWindow({
+                        content: '<div class="info" style="position:inherit;margin-bottom:0;">'+liveStr.join('')+'</div><div class="sharp"></div>',
+                        isCustom: true,
+                        offset: new AMap.Pixel(15, -3)
+                    });
+                    
+                    // 默认打开信息窗口
+                    weatherInfoWin.open(map, weatherMarker.getPosition());
+                    
+                    // 鼠标悬停标记时重新打开信息窗口
+                    weatherMarker.on('mouseover', function() {
+                        weatherInfoWin.open(map, weatherMarker.getPosition());
+                    });
+                }
+            });
+            
+            // 2. 查询未来4天天气预报（显示在右侧面板中）
+            weather.getForecast('南京市', function(err, data) {
+                if (err) return;
+                var forecastStr = [];
+                for (var i = 0, dayWeather; i < data.forecasts.length; i++) {
+                    dayWeather = data.forecasts[i];
+                    forecastStr.push(
+                        dayWeather.date + 
+                        ' <span class="weather">' + dayWeather.dayWeather + '</span> ' + 
+                        dayWeather.nightTemp + '~' + dayWeather.dayTemp + '℃'
+                    );
+                }
+                document.getElementById('forecast').innerHTML = forecastStr.join('<br><br>');
+            });
+        });
+    }
+    
+    // 切换天气预报显示/隐藏状态
+    function toggleWeather() {
+        var weatherPanel = document.getElementById('weatherPanel');
+        if (isWeatherVisible) {
+            // 隐藏天气预报：隐藏面板、标记点和信息窗口
+            weatherPanel.style.display = 'none';
+            if (weatherMarker) weatherMarker.hide();
+            if (weatherInfoWin) weatherInfoWin.close();
+            document.getElementById('weatherBtn').textContent = "显示天气预报";
+        } else {
+            // 显示天气预报：显示面板、标记点和信息窗口
+            weatherPanel.style.display = 'block';
+            if (weatherMarker) weatherMarker.show();
+            if (weatherInfoWin) weatherInfoWin.open(map, weatherMarker.getPosition());
+            document.getElementById('weatherBtn').textContent = "隐藏天气预报";
+        }
+        isWeatherVisible = !isWeatherVisible;
+    }
+    
+    // 初始化天气预报并绑定按钮事件
+    initWeather();
+    document.getElementById('weatherBtn').addEventListener('click', toggleWeather);
+    
+    // ---------------------- 5. 地图 resize 时的适配处理 ----------------------
+    window.addEventListener('resize', function() {
+        map.resize(); // 地图尺寸自适应
+        // 重新定位信息窗口（防止窗口位置偏移）
+        if (weatherInfoWin && weatherMarker && isWeatherVisible) {
+            weatherInfoWin.open(map, weatherMarker.getPosition());
+        }
+        // 重新定位商圈标签
+        if (businessInfoWindow && businessMarker) {
+            businessInfoWindow.open(map, businessMarker.getPosition());
+        }
+    });
+    </script>
+</body>
+</html>
