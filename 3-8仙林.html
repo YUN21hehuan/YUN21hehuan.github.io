@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仙林商圈</title>
+    <!-- 引入Tailwind CSS用于样式美化 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome用于图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        html {
+          scroll-behavior: smooth; /* 滚动时平滑过渡，体验更好 */
+      }
+          body {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-image: url("./images/a.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          }
+          /* 统一设置最大宽度变量 */
+          :root {
+            --max-content-width: 7xl; /* 与主页面网格容器最大宽度一致 */
+          }
+          /* 商场卡片hover效果 */
+        .mall-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .mall-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.12);
+        }
+        /* 双图容器样式（横版适配） */
+        .dual-image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .dual-image-container img {
+            flex: 1 1 calc(50% - 0.25rem);
+            min-width: 280px; /* 移动端最小宽度，避免图片过窄 */
+            height: 280px; /* 固定高度，保证横版比例统一 */
+            object-cover: cover; /* 裁剪图片，避免变形 */
+            border-radius: 0.75rem;
+        }
+        /* 文字段落间距优化 */
+        .content-paragraph {
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+      </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- 页面标题区域 -->
+    <header class="py-8 px-4 md:px-8 lg:px-16 bg-transparent shadow-sm max-w-7xl mx-auto">
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-900">仙林商圈</h1>
+        <div class="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+    </header>
+
+    <!-- 商圈概况介绍 - 与商场卡片使用相同的容器样式 -->
+    <section class="py-8 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+        <div class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-12">
+            <div class="flex items-center mb-5">
+                <i class="fa-solid fa-map-location-dot text-blue-600 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">商圈概况介绍</h2>
+            </div>
+            <p class="text-gray-600 content-paragraph">
+                仙林商圈位于南京市栖霞区，共761万平方米，属于区域核心商圈，是中高端综合性商业功能区。
+            </p>
+            <p class="text-gray-600 content-paragraph">
+                仙林商圈是依托高校经济发展的商圈,周围有十余所高校,大大小小的湖屿也给了仙林商圈独特的自然风貌。在南京最新的商业发展规划中，仙林商圈与夫子庙商圈、江东商圈规划等级一样，均为中高端综合性商业功能区。            
+            </p>
+        </div>
+    </section>
+
+    <!-- 核心内容容器（商场介绍）- 与商圈介绍使用相同的容器样式 -->
+    <main class="py-4 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+        <!-- 第一个商场 -->
+        <section class="mall-card bg-white rounded-xl shadow-md overflow-hidden p-6 md:p-8 mb-12">
+            <!-- 商场标题 -->
+            <div class="flex items-center mb-6">
+                <i class="fa-solid fa-building-columns text-blue-500 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">金鹰湖滨天地</h2>
+            </div>
+
+            <!-- 商场文字介绍 -->
+            <div class="mb-6">
+                <p class="text-gray-600 content-paragraph">
+                    南京金鹰奥莱城隶属金鹰商贸集团(HK.3308.)旗下，为中国首家“第四代奥莱”，2017年7月15日，项目整体更名为“金鹰湖滨天地”。
+                <p class="text-gray-600 content-paragraph">
+                    地处南京栖霞区风景秀丽的仙林新城区中心位置，紧邻地铁2号线仙林中心站，距主城核心(新街口)25公里。一期建筑面积12万平米，分6座主题馆，由200余间时尚品牌折扣店，超大停车场，影院、大量国际餐饮连锁、美容SPA、高端超市、银行等数十间特业组成，是集购物、休闲、娱乐、度假等为一体，以奥莱为主题的开放式Mall。            
+                </div>
+
+            <!-- 双图展示（横版，可替换） -->
+            <div class="dual-image-container mb-6">
+                <img src="./images/hb-1.png" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+                <img src="./images/hb-2.png"
+                     class="hover:scale-[1.02] transition-transform duration-300">
+            </div>
+
+            <!-- 商场关键信息 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-location-dot text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>地址：南京栖霞区学海路1号</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-clock text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>营业时间：10:00-22:00（周末无延长）</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-tags text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>定位：主题开放式Mall</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-star text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>特色：全国首家 “奥莱街区 + 购物中心 + 湖滨公园”</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二个商场 -->
+        <section class="mall-card bg-white rounded-xl shadow-md overflow-hidden p-6 md:p-8">
+            <!-- 商场标题 -->
+            <div class="flex items-center mb-6">
+                <i class="fa-solid fa-store text-red-500 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">九霄梦天地</h2>
+            </div>
+
+            <!-- 商场文字介绍 -->
+            <div class="mb-6">
+                <p class="text-gray-600 content-paragraph">
+                    九霄梦天地位于江苏省南京市栖霞区仙林街道，由南京九霄置业有限公司建成，小区物业公司为南京朗诗物业管理有限公司。
+                <p class="text-gray-600 content-paragraph">
+                    九霄梦天地位于栖霞区仙林板块，学则路地铁站，是仙林一个地铁上盖的商业综合体，总建筑面积约7.8万方。九霄梦天地打造主题多元化的体验式综合商场，将来的业态涵盖有：影城，精品超市，特色餐饮、精品零售，休闲娱乐等。
+            </div>
+
+            <!-- 双图展示（横版，可替换） -->
+            <div class="dual-image-container mb-6">
+                <img src="./images/jx-1.png" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+                <img src="./images/jx-2.png" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+            </div>
+
+            <!-- 商场关键信息 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-location-dot text-red-500 mr-2 w-5 text-center"></i>
+                    <span>地址：南京栖霞区学衡路1号</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-clock text-red-500 mr-2 w-5 text-center"></i>
+                    <span>营业时间：10:00-22:00（周末无延长）</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-tags text-red-500 mr-2 w-5 text-center"></i>
+                    <span>定位：体验式综合商场</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-star text-red-500 mr-2 w-5 text-center"></i>
+                    <span>特色：“MORE 社区”，商业 — 办公 — 生态休闲一体</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 右下角功能按钮组 -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-10">
+        <!-- 返回上一页按钮 -->
+        <button onclick="window.history.back()" 
+                class="bg-gray-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-800 transition-colors"
+                title="返回上一页">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <!-- 回到顶部按钮 -->
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition-colors"
+                title="回到顶部">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        // 图片加载失败处理
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.src = 'https://picsum.photos/600/400';
+                this.alt = '商场默认展示图';
+            });
+        });
+
+        // 页面加载动画
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease';
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美食餐厅</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        // 配置Tailwind自定义颜色
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E63946',
+                        secondary: '#457B9D',
+                        accent: '#F4A261',
+                        light: '#F1FAEE',
+                        dark: '#1D3557'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+          scroll-behavior: smooth; /* 滚动时平滑过渡，体验更好 */
+      }
+          body {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-image: url("./images/a.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          }
+      </style>
+      <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+            .card-shadow {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            }
+            .title-gradient {
+                background: linear-gradient(90deg, #E63946, #F4A261);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+            .restaurant-link {
+                color: #1D3557;
+                text-decoration: none;
+                border-bottom: 2px solid transparent;
+                transition: all 0.3s ease;
+            }
+            .restaurant-link:hover {
+                color: #E63946;
+                border-bottom: 2px solid #E63946;
+            }
+        }
+    </style>
+
+</head>
+<body class="bg-gray-50 scroll-smooth">
+    <!-- 主容器 -->
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <!-- 页面标题 -->
+        <header class="mb-12 text-center">
+            <h1 class="text-[clamp(1.8rem,5vw,3rem)] font-bold title-gradient mb-2">八大商圈美食餐厅推荐</h1>
+            <p class="text-gray-600 text-lg">探索城市各商圈特色美食，满足你的味蕾需求</p>
+        </header>
+
+        <!-- 商圈内容容器 -->
+        <div class="space-y-16">
+            <!-- 1. 新街口商圈 -->
+            <section class="bg-white/70 rounded-2xl p-6 md:p-8 card-shadow transition-transform hover:scale-[1.01] duration-300">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <!-- 商圈标题 -->
+                    <div class="md:w-1/4 flex items-center justify-center md:justify-start">
+                        <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark border-l-4 border-primary pl-4">
+                            新街口商圈<br>美食
+                        </h2>
+                    </div>
+                    <!-- 餐厅列表 -->
+                    <div class="md:w-3/4 space-y-6">
+                        <!-- 餐厅1 -->
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/dpd.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/H6k0rsDzqdafA5Ht" class="restaurant-link" title="待修改链接地址">南京大牌档</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：民国美龄粥、金陵烤鸭、天王烤鸭包、招牌盐水鸭、酒酿赤豆元宵、古法糖芋苗</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 汉中路27号友谊广场5楼（金陵饭店对面）</p>
+                            </div>
+                        </div>
+                        <!-- 餐厅2 -->
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/hswt.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/laThfIAdJ4FSd3Mi" class="restaurant-link" title="待修改链接地址">火山屋台·世界奶油咖喱乌冬首创(新街口店)</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：奶油咖喱乌冬、奶酪芝士瀑布甘薯、黄油啤酒、屋台一口饭、猪五花烤凤梨</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i>金銮巷华盈国际大厦1层</p>
+                            </div>
+                        </div>
+                        <!-- 餐厅3 -->
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/jdhb.png" class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/EBvEJVdimBEt8xJ8" class="restaurant-link" title="待修改链接地址">金陵鸡蛋汉堡</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：香酥鸡蛋汉堡、招牌至尊鸡蛋汉堡、香酥芝士鸡蛋汉堡</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 丰富路146号101室-1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. 夫子庙商圈 -->
+            <section class="bg-white/70 rounded-2xl p-6 md:p-8 card-shadow transition-transform hover:scale-[1.01] duration-300">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/4 flex items-center justify-center md:justify-start">
+                        <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark border-l-4 border-secondary pl-4">
+                            夫子庙商圈<br>美食
+                        </h2>
+                    </div>
+                    <div class="md:w-3/4 space-y-6">
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/wb.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/G37enutT4FfCzAdt" class="restaurant-link" title="待修改链接地址">味波小馆</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：茶香肉、蜜汁小土豆、双脆、老妈蹄花煲、麻香跳跳鱼、黑白配、风味茄子、石锅麻婆豆腐</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 钞库街15号（曙光天地停车场入口）</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/yz.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/H5tkex0vAD2cO39D" class="restaurant-link" title="待修改链接地址">徐家鸭子店</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：烤鸭、招牌烤鸭、盐水鸭、五香鸭翅、五香酱鸭头</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 大四福巷15号-4</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/mhg.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/H8FF0XYzJJsm0Tdc" class="restaurant-link" title="待修改链接地址">陆氏梅花糕</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：豆沙馅梅花糕、香蕉梅花糕、紫薯梅花糕、水果馅梅花糕</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 老门东三条营49号</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 元通商圈 -->
+            <section class="bg-white/70 rounded-2xl p-6 md:p-8 card-shadow transition-transform hover:scale-[1.01] duration-300">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/4 flex items-center justify-center md:justify-start">
+                        <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark border-l-4 border-accent pl-4">
+                            元通商圈美食
+                        </h2>
+                    </div>
+                    <div class="md:w-3/4 space-y-6">
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/nzq.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/FjnzraBPpD16jDgy" class="restaurant-link" title="待修改链接地址">南朱雀·南京菜</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：淮扬刀工·去骨大白鱼、酸汤文思豆腐狮子头、金陵桂花烟熏烤鸭、砂窝花椒牛肉粒、铁板黑松露炒饭、榴莲忘返</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 江东中路345号国金中心商场地下一层</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/bss.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/G3XqgGICK97KbssW" class="restaurant-link" title="待修改链接地址">滨寿司</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：鹅肝寿司、火炙三拼寿司、寿喜锅、焦糖三拼寿司、大切三文鱼寿司、牛肉猪骨拉面、火炙牛肉寿司</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 江东中路258号华采天地4楼15-05号商铺</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/mb.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/k1HH46u0TBXOmtRy" class="restaurant-link" title="待修改链接地址">B&C黄油与面包·法式面包市集</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：草莓蛋糕咸奶油泡芙、法式黄油牛角包之神、原创惠灵顿牛排牛角包、开心果句焗烤厚塔、法式双重巧克力可颂塔、蓝莓蛋糕咸奶油泡芙</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 江东中路345号国金中心商场地下一层</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. 江东商圈 -->
+            <section class="bg-white/70 rounded-2xl p-6 md:p-8 card-shadow transition-transform hover:scale-[1.01] duration-300">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/4 flex items-center justify-center md:justify-start">
+                        <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark border-l-4 border-primary pl-4">
+                            江东商圈美食
+                        </h2>
+                    </div>
+                    <div class="md:w-3/4 space-y-6">
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/scs.png" class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/G4815CcMzgbYGYiV" class="restaurant-link" title="待修改链接地址">三出山火锅</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：招牌九秒牛肉、黑米糍粑、出山鸳鸯锅、菌菇四拼、冬瓜山茶、鲜雪花牛、紫苏牛肉</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 江东中路345号南京ifc商场L6-2（A区6楼 安达士大堂出口旁）</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images//hf.png" class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/k3RZsWRjlNEYPrxD" class="restaurant-link" title="待修改链接地址">华府尊宴</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：宋嫂鱼羹、帕玛森牛肉粒、海胆八宝豆腐、黄鱼烧手作年糕、柠檬山药、西子松露牛肉饭、柠檬桂花山药</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 江东中路345号南京ifc商场L6-3</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/gml.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/H7E61W1DZft5cwhU" class="restaurant-link" title="待修改链接地址">桂满陇·海市蜃楼·黑金</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：黑胡椒烤杭州叫花鸡、黑猪肉鲜肉小笼包、家烧大黄鱼年糕、霸气吮指肉蟹煲、雪花牛肉绿麻婆豆腐</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 江东中路345号南京ifc商场LG1-41&42</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. 江北商圈 -->
+            <section class="bg-white/70 rounded-2xl p-6 md:p-8 card-shadow transition-transform hover:scale-[1.01] duration-300">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/4 flex items-center justify-center md:justify-start">
+                        <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark border-l-4 border-secondary pl-4">
+                            江北商圈美食
+                        </h2>
+                    </div>
+                    <div class="md:w-3/4 space-y-6">
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/swf.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/jDayc8NRkXLxq5Me" class="restaurant-link" title="待修改链接地址">狮王府淮扬菜</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：美极白虾、千禧盐水乳鸽、蟹粉狮子头、热呛牡丹虾球、煎烹雪花牛肉、招牌阳春面</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 龙华路1号江北虹悦城5F-07号</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/qm.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/G2WYuKLqstSreP5s" class="restaurant-link" title="待修改链接地址">乾门涮肉·老北京新火锅</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：老北京麻酱、手切鲜羊肉、手切鲜吊龙、老北京特色爆肚、Ooniio奶皮子酸奶、脆骨羊肉卷</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 江北虹悦城5楼</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/rsx.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/l3SvmKYtmXRsFL3D" class="restaurant-link" title="待修改链接地址">肉三寻·隔膜烧肉(雨山龙湖天街店)</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：招牌五盐原切、冠军牛五花拼盘、脆嫩松板肉、特色老式米拌饭、朝族香辣拌板筋、酒酿豆花</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 光明路59号龙湖雨山天街4楼</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. 桥北商圈 -->
+            <section class="bg-white/70 rounded-2xl p-6 md:p-8 card-shadow transition-transform hover:scale-[1.01] duration-300">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/4 flex items-center justify-center md:justify-start">
+                        <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark border-l-4 border-accent pl-4">
+                            桥北商圈美食
+                        </h2>
+                    </div>
+                    <div class="md:w-3/4 space-y-6">
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/wy.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/k4D32e77S8fChreC" class="restaurant-link" title="待修改链接地址">维一之夏 日式定食串烧制造所</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：土豆泥、多人寿喜锅、照烧鸡腿定食、唐扬鸡块、吉列猪里脊、豚骨猪软骨拉面、章鱼小丸子</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 弘阳·旭阳上城三区柳州东路6号1栋106</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/xt.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/Ga2G6rsIWGlQKodO" class="restaurant-link" title="待修改链接地址">西塔老太太泥炉烤肉</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：老太太特色肥瘦、秘制麻酱、极品牛雪花、特味五花肉、秘制肥牛肋排、雪花肋条、浇汁横根膜</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 大桥北路58号印象汇4楼16A号</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/xx.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/l3B23AvHfBqZHulr" class="restaurant-link" title="待修改链接地址">寻湘地带·现炒湖南菜</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：十八秒鲜炒牛肉、招牌肉汤拌饭、长沙小炒肉、满姑擂辣椒皮蛋、湘西炭火蛙、岳阳姜辣凤爪下饭个性鸡杂</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 大桥北路58号印象汇4楼</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. 百家湖商圈 -->
+            <section class="bg-white/70 rounded-2xl p-6 md:p-8 card-shadow transition-transform hover:scale-[1.01] duration-300">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/4 flex items-center justify-center md:justify-start">
+                        <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark border-l-4 border-primary pl-4">
+                            百家湖商圈<br>美食
+                        </h2>
+                    </div>
+                    <div class="md:w-3/4 space-y-6">
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/mg.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/iRA15ugOCPUUxhIB#comment" class="restaurant-link" title="待修改链接地址">Ameigo梅果·云贵川bistro</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：洱海手撕海鲈鱼、菌菇奶油虾、油辣子烤牛肋条串、版纳舂鸡脚、毛辣果酸汤鱼、油辣椒炙烤牛肋条串</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 双龙大道1680号俱乐部休闲区36幢百家湖1912街区4号104</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/tss.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/FTCIhTPC6VtbGiFE" class="restaurant-link" title="待修改链接地址">太食兽泰式茶餐厅</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：多拿虾饼、玛莎玛黄咖喱牛腩、冬阴功汤、炭烤猪颈肉、芒果糯米饭、泰式酸辣虾</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 双龙大道1680号俱乐部休闲区26幢1912街区8号102、103</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/yl.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/l1Mv7HWGDlkMZLn3" class="restaurant-link" title="待修改链接地址">裕莲茶楼</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：焦糖可颂蛋挞、关老爷红杏冰茶、生奶油麻薯号角、特浓茶钻琥珀奶</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 双龙大道1698号景枫广场F125-2</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. 仙林商圈 -->
+            <section class="bg-white/70 rounded-2xl p-6 md:p-8 card-shadow transition-transform hover:scale-[1.01] duration-300">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/4 flex items-center justify-center md:justify-start">
+                        <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark border-l-4 border-secondary pl-4">
+                            仙林商圈美食
+                        </h2>
+                    </div>
+                    <div class="md:w-3/4 space-y-6">
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/db.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/l8pyqDkFIGaOmN1u" class="restaurant-link" title="待修改链接地址">多宾韩国料理</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：韩式炸酱面、辣牛肉汤、炸猪排、辣味糖醋肉、铁板辣炒梅花肉、海鲜面、炙烤烤肉、半半面</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 文范路九号爱尚街区负一层A10号</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/yx.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/G7ptuohN9d5FzGp4" class="restaurant-link" title="待修改链接地址">印象金陵（仙林金鹰店）</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：软弱香甜的荔浦芋儿、外脆里嫩的脆皮清远鸡、Q弹清甜的清炒大虾仁、老南京赤豆小元宵、滋味花蛤、脆脆糯糯的脆皮猪手</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 仙林街道学海路1号南京仙林金鹰购物中心一期B馆1F--3F</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 items-center sm:items-start bg-gray-50 p-4 rounded-lg">
+                            <img src="./images/dj.png"  class="w-full sm:w-48 h-32 object-cover rounded-md shadow-sm">
+                            <div class="flex-1">
+                                <!-- 餐厅名超链接，链接地址待修改 -->
+                                <h3 class="text-xl font-semibold text-dark mb-2">
+                                    <a href="https://www.dianping.com/shop/labsP71NFCSH3eeo" class="restaurant-link" title="待修改链接地址">滇界·云南野鲜菌火锅（仙林金鹰店）</a>
+                                </h3>
+                                <p class="text-gray-600 mb-2">特色：十界菌菇锅底、鲜云南百味牛肉、鲜野菌火腿焖饭、野菜耙耙、云南特色酸汤锅底、羊肚菌、玉米笋、薄切鲜牛舌</p>
+                                <p class="text-sm text-gray-500"><i class="fa-solid fa-map-marker-alt mr-1"></i> 学津路金鹰湖滨天地2期2楼</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 右下角功能按钮组 -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-10">
+        <!-- 返回上一页按钮 -->
+        <button onclick="window.history.back()" 
+                class="bg-gray-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-800 transition-colors"
+                title="返回上一页">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <!-- 回到顶部按钮 -->
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition-colors"
+                title="回到顶部">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+    </script>
+
+    
+</body>
+</html>

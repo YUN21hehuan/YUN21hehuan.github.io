@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物打卡</title>
+     <!-- 引入Tailwind CSS -->
+     <script src="https://cdn.tailwindcss.com"></script>
+     <!-- 引入Font Awesome图标 -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        html {scroll-behavior: smooth; /* 滚动时平滑过渡，体验更好 */}
+        body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-image: url("./images/a.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        }
+    </style>
+    <!-- 自定义Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#CCEEFF', // 主色调：蓝色
+                        secondary: '#f97316', // 辅助色：橙色
+                        neutral: '#f3f4f6', // 中性色：浅灰
+                    },
+                    fontFamily: {
+                        sans: ['PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .card-shadow {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            }
+            .text-center-bold {
+                @apply text-center font-bold text-xl md:text-2xl text-primary mb-6;
+            }
+        }
+    </style>
+
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- 页面标题区 -->
+    <div class="bg-transparent text-[#f97316] py-6 px-4 md:py-8 md:px-8">
+        <h1 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-center">八大商圈购物打卡点推荐</h1>
+        <p class="text-blue-100 text-center mt-2">南京热门商圈精选，购物打卡两不误</p>
+    </div>
+
+    <!-- 商圈推荐主体区 -->
+    <div class="container mx-auto px-4 py-10">
+        <!-- 1. 新街口商圈 -->
+        <div class="bg-black/70 rounded-xl p-6 md:p-8 mb-12 card-shadow transition-all hover:shadow-lg">
+            <h2 class="text-center-bold border-b border-white-100 pb-4">新街口商圈</h2>
+            
+            <!-- 购物点1（可修改） -->
+            <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">MINISO LAND</span><br>
+                    介绍：名创优品的 IP 主题概念店，场景化陈列，集结三丽鸥、迪士尼、chiikawa、哈利・波特等热门 IP，门店约 2000㎡，沉浸式打卡强。<br>
+                    评价：打卡出片强、联名上新快，价格多为几十元，性价比高；节假日易排队。<br>
+                    地址：秦淮区五老村街道中山南路商茂世纪广场1F<br><br>
+                    <span class="text-secondary font-bold">泡泡玛特POPMART</span><br>
+                    介绍：潮流玩具头部品牌门店，盲盒与 MEGA 珍藏系列为主，店内常见现场拆箱与热门系列发售。<br>
+                    评价：系列全、活动多，MEGA 1000%/400% 等热门款常到店；门店服务稳定，适合收藏与抽盒。<br>
+                    地址：秦淮区朝天宫街道中山南路2号东方福来德商场1楼1F-1003号</p>
+                <img src="./images/mini3.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+            
+            <!-- 购物点2（可修改） -->
+            <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">ONE MOMENT</span><br>
+                    地址：秦淮区朝天宫街道新街口地铁站1号口旁<br>
+                    介绍：仓储式时尚集合店，约2000㎡，自助购物，风格多元，配饰丰富，提供 7 天无理由退换。<br>
+                    评价：面积大、按色系陈列，好搭好逛；性价比高，百元内选择多；开业期人气旺、需排队。<br><br>
+                    <span class="text-secondary font-bold">ZARA</span><br>
+                    介绍：南京新街口旗舰店，约3450㎡，沉浸式零售空间，引入 “Zacaffè”，兼具零售与社交属性。<br>
+                    评价：空间体验强、上新快，动线与陈列新颖；餐饮与零售融合，逛店停留时间长。<br>
+                    地址：秦淮区朝天宫街道中山南路49号</p>
+                <img src="./images/zara.jpg"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+            
+            <!-- 购物点3（可修改） -->
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">MUJI无印良品</span><br>
+                    介绍：中国第三家世界旗舰店，1–2层，含 “MUJI BOOKS”“Open MUJI” 与 “Cafe & Meal MUJI”，营业时间 10:00–22:00。<br>
+                    评价：选品全、陈列舒适，咖啡与餐食口碑稳定，适合一站式日常购物与休憩。<br>
+                    地址：秦淮区朝天宫街道中山南路2号南京东方福来德1-2层<br><br>
+                    <span class="text-secondary font-bold">NIJO二条商店</span><br>
+                    介绍：复合生活方式店，2F文创/拍立得/小物，3F餐厨餐具，风格日系，设咖啡与小庭院。<br>
+                    评价：小众精致、拍照好看，原创与日式餐具口碑好；价格偏中高，部分同款较日本本土略贵。<br>
+                    地址：秦淮区朝天宫街道丰富路101号二条小白楼2-3楼</p>
+                <img src="./images/et.jpg"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+        </div>
+
+        <!-- 2. 夫子庙商圈 -->
+        <div class="bg-black/70 rounded-xl p-6 md:p-8 mb-12 card-shadow transition-all hover:shadow-lg">
+            <h2 class="text-center-bold border-b border-blue-100 pb-4">夫子庙商圈</h2>
+            
+            <!-- 购物点1（可修改） -->
+            <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">niko and ...</span><br>
+                    介绍：日系生活方式集合，1–2 层，含咖啡与家居小物，风格复古文艺，江苏首店，营业 10:00–22:00。<br>
+                    评价：空间好拍、选品多元，适合一站式穿搭与小物采购；周末客流大、试衣需排队。<br> 
+                    地址：秦淮区洪武路街道建康路1号2F–T10<br><br>
+                    <span class="text-secondary font-bold">H&M</span><br>
+                    介绍：快时尚主力店，门店占多个单元，上新快、尺码较全，常见折扣与联名活动。<br>
+                    评价：折扣期性价比高、上新频率稳定；陈列更新及时，适合通勤与基础款一站式补货。<br>
+                    地址：秦淮区洪武路街道建康路1号水游城一楼T09,10,11,12,T08-13单元</p>
+                <img src="./images/niko.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+            
+            <!-- 购物点2（可修改） -->
+            <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">环龙相机</span><br>
+                    介绍：复古相机与胶片主题店，CCD / 胶片机 / 拍立得与配件齐全，货源含海外与寄卖，主理人资深。<br>
+                    评价：品类全、有稀缺款，可体验帮拍与按张卖相纸；价格区间广，淘货看运气与预算。<br> 
+                    地址：秦淮区朝天宫街道熙南里大板巷79-1号<br><br>
+                    <span class="text-secondary font-bold">液体猫</span><br>
+                    介绍：韩娱实体专辑与周边集合，展示柜含二代至六代应援棒，设留言墙，营业 10:00–22:00。<br>
+                    评价：专辑与周边较全，同担交流氛围好；开业期活动多，适合线下拆专与应援装备。<br>
+                    地址：秦淮区洪武路街道建康路1号鹏欣水游城F3</p>
+                <img src="./images/ytm.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+            
+            <!-- 购物点3（可修改） -->
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">三丽鸥Sanrio Gift Gate </span><br>
+                    介绍：三丽鸥官方授权专门店，毛绒玩偶、挂件、盲盒、文具等齐全，常见会员与满赠。<br>
+                    评价：品类全、正版有保障，打卡拍照好看；定价多为中高，活动期性价比提升。<br>
+                    地址：秦淮区夫子庙街道东边营17号<br><br>
+                    <span class="text-secondary font-bold">不万能杂货铺</span><br> 
+                    介绍：夫子庙片区文创杂货铺，手作、古着、配饰与小众摆件为主，风格文艺复古。<br>
+                    评价：小众好逛、适合淘孤品；价格随品类波动，部分为设计师/手作款，议价空间有限。<br>
+                    地址：秦淮区夫子庙街道马道街143号马道街143号院</p>
+                <img src="./images/slo.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+        </div>
+
+        <!-- 3. 元通商圈 -->
+        <div class="bg-black/70 rounded-xl p-6 md:p-8 mb-12 card-shadow transition-all hover:shadow-lg">
+            <h2 class="text-center-bold border-b border-blue-100 pb-4">元通商圈</h2>
+            
+            <!-- 购物点1（可修改） -->
+            <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">citysuper超生活</span><br>
+                    介绍：高端精品超市，主打进口生鲜、零食、酒水及日用百货，分区精细，还设有烘焙区与简餐区，满足品质生活采购需求。<br>
+                    评价：进口商品品类全、品质优，适合追求生活质感的消费者；但价格偏高，部分生鲜保质期较短，需注意选购时机。<br>
+                    地址：南京市建邺区江东中路345号国金中心商场地下一层<br><br>
+                    <span class="text-secondary font-bold">lululemon</span><br>
+                    介绍：知名运动服饰品牌店，主打瑜伽、跑步等运动场景服饰，面料舒适透气、塑形效果好，还提供免费运动课程体验预约。<br>
+                    评价：运动服舒适度与颜值兼具，版型对身材包容性强；服务贴心，会根据需求推荐款式，但部分热门款式常断码，需提前咨询库存<br>
+                    地址：建邺区沙洲街道江东中路345号南京ifc商场L3-17
+                </p>
+                <img src="./images/city.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+            
+            <!-- 购物点2（可修改） -->
+            <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">BEAST野兽派</span><br>
+                    介绍：主打艺术感生活美学的品牌店，涵盖花艺、家居用品、香氛、服饰等，设计精致，常与 IP 联名推出限定款，门店陈列极具氛围感。<br>
+                    评价：商品颜值高、设计独特，适合送礼或提升家居格调；价格偏贵，部分花艺产品养护难度较高，需听从店员养护建议。<br>
+                    地址：建邺区沙洲街道江东中路345号国金中心1层G-2<br><br>
+                    <span class="text-secondary font-bold">LV路易威登</span><br>
+                    介绍：国际奢侈品牌门店，涵盖皮具、服饰、配饰、腕表等全品类商品，门店装修奢华，提供定制化服务与专属导购服务。<br>
+                    评价：品牌调性高、商品工艺精湛，是高端消费与收藏的选择；热门款式需排队或预订，部分限量款抢购难度大，且无折扣活动。<br>
+                    地址：建邺区沙洲街道江东中路345号南京ifc商场L1-6&7L2-13
+                </p>
+                <img src="./images/beast.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+            
+            <!-- 购物点3（可修改） -->
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">Chic Ocean 设计师品牌买手店</span><br>
+                    介绍：汇集国内外小众设计师品牌的买手店，服饰、配饰风格多元，兼具个性与设计感，定期更新款式，满足潮流穿搭需求。<br>
+                    评价：款式独特不易撞款，能发掘小众宝藏品牌；定价中高，部分设计款尺码选择较少，建议到店试穿。 <br>
+                    地址：建邺区双闸街道华采天地F2<br><br>
+                    <span class="text-secondary font-bold">荟品仓城市奥莱</span><br>
+                    介绍：品牌折扣集合店，汇集服饰、鞋包、家居等品类，以低价折扣销售过季或断码商品，采用仓储式陈列，性价比突出。<br>
+                    评价：价格实惠，大牌折扣力度大，适合淘高性价比好物；但商品款式更新较慢，部分商品存在轻微瑕疵，需仔细挑选。<br>
+                    地址：建邺区沙洲街道江东中路341号
+                </p>
+                <img src="./images/chic.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+        </div>
+
+        <!-- 4. 江东商圈 -->
+        <div class="bg-black/70 rounded-xl p-6 md:p-8 mb-12 card-shadow transition-all hover:shadow-lg">
+            <h2 class="text-center-bold border-b border-blue-100 pb-4">江东商圈</h2>
+            
+            <!-- 购物点1（可修改） -->
+            <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">集研社</span><br>
+                    介绍：主打杂物小物与潮流周边的零售店，涵盖二次元手办、韩娱应援物、日常小摆件、文具等，品类丰富，风格贴合年轻群体喜好，部分周边为热门 IP 联名款。<br>
+                    评价：二次元与韩娱周边款式全，小众杂物精致好淘，适合年轻爱好者。 <br>
+                    地址：建邺区莫愁湖街道吾悦广场3楼<br><br>
+                    <span class="text-secondary font-bold">萱子饰品</span><br>
+                    介绍：时尚饰品连锁品牌店，涵盖耳环、项链、发饰、手链等，款式紧跟潮流，分日常、通勤、派对等风格，性价比高。<br>
+                    评价：款式多、更新快，搭配性强，店员会帮忙推荐；部分饰品材质易氧化，需注意保养，折扣活动较少。<br>
+                    地址：建邺区南苑街道虹悦城3F-M13-2铺
+                </p>
+                <img src="./images/jys.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+            
+            <!-- 购物点2（可修改） -->
+            <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">G·SPACE</span><br>
+                    介绍：书店与文创集合，涵盖盲盒、手办、潮玩周边，常有限定款发售，门店设计潮流感强，设打卡陈列区。<br>
+                    评价：潮玩品类全、限定款更新快，适合收藏爱好者；价格偏中高，部分热门款抢货竞争大，需关注发售信息。<br> 
+                    地址：建邺区南苑街道应天大街888号金鹰世界1-2楼F1013-2号<br><br>
+                    <span class="text-secondary font-bold">Calvin Klein Underwear</span><br>
+                    介绍：知名品牌内衣店，主打舒适贴身内衣、家居服，面料柔软透气，设计简约时尚，尺码选择较全，提供试穿服务。<br>
+                    评价：穿着舒适、版型贴合，品质有保障；但价格偏高，除大促外折扣少，部分热门色系易断码。<br> 
+                    地址：建邺区南苑街道应天大街888号金鹰世界二楼F227-1号
+                </p>
+                <img src="./images/g.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+            
+            <!-- 购物点3（可修改） -->
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">金鹰超市</span><br>
+                    介绍：中高端超市，生鲜、进口食品、日用百货齐全，分区清晰，还设熟食与烘焙区，主打新鲜与品质，服务配套完善。<br>
+                    评价：商品品质优、购物环境好，生鲜新鲜度高；但价格比普通超市略贵，部分进口商品保质期较短，需留意。<br> 
+                    地址：建邺区南苑街道江东中路147号<br><br>
+                    <span class="text-secondary font-bold">ALIENWARE外星人</span><br> 
+                    介绍：高端电竞设备专卖店，主营电竞电脑、显示器、外设等，设备性能强，门店设体验区，可现场试用，有专业导购讲解。<br>
+                    评价：设备性能顶尖、体验感佳，适合电竞爱好者；但价格昂贵，售后服务需提前了解，部分机型需预订。<br>
+                    地址：建邺区南苑街道应天大街888号金鹰世界5层
+                </p>
+                <img src="./images/jy.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+        </div>
+
+        <!-- 5. 江北商圈 -->
+        <div class="bg-black/70 rounded-xl p-6 md:p-8 mb-12 card-shadow transition-all hover:shadow-lg">
+                <h2 class="text-center-bold border-b border-blue-100 pb-4">江北商圈</h2>
+    
+        <!-- 购物点1（可修改） -->
+        <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">一栗</span><br>
+                    介绍：网红甜品店，主打栗子类甜品，如栗子蛋糕、栗子奶冻等，造型精致，口感绵密，门店装修简约清新，适合打卡。<br>
+                    评价：栗子味浓郁、甜度适中，甜品颜值高；但热门款常售罄，高峰时段需排队，部分产品冷藏后口感更佳，建议即时食用。<br>
+                    地址：龙华路 1 号江北虹悦城商业购物中心 B1 层<br><br>
+                    <span class="text-secondary font-bold">好特卖 HotMaxx</span><br>
+                    介绍：折扣零食与日用品集合店，主营临期或过季商品，涵盖零食、美妆、日用等，价格低廉，商品更新频率高。<br>
+                    评价：价格超实惠，零食品类丰富，适合囤货；但需注意商品保质期，部分日用品包装可能有瑕疵，不影响使用。<br>
+                    地址：龙华路 1 号江北虹悦城负一楼当顿文具社斜对面</p>
+                <img src="./images/yl.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+    
+        <!-- 购物点2（可修改） -->
+        <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">盒马鲜生</span><br>
+                    介绍：新零售超市，主营生鲜、日用、零食等，支持线上线下购物，提供海鲜现场加工服务，部分商品可极速配送。<br>
+                    评价：生鲜新鲜、品类丰富，加工服务方便；但线上配送有范围限制，高峰时段加工需等号，部分进口商品价格偏高。<br>
+                    地址：江北虹悦城负一楼<br><br>
+                    <span class="text-secondary font-bold">Gift 礼物概念</span><br>
+                    介绍：创意礼品店，涵盖节日礼品、手办、文创周边、家居小物等，款式多样且具设计感，可提供礼品包装服务。<br>
+                    评价：礼品选择多、颜值高，适合送礼；但部分商品定价偏高，小众设计款库存较少，热门节日前建议提前选购。<br>
+                    地址：江北虹悦城 3F</p>
+                <img src="./images/gift.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+    
+        <!-- 购物点3（可修改） -->
+        <div class="flex flex-col md:flex-row items-center gap-6">
+                <p class="text-white text-lg w-full md:w-1/2">
+                    <span class="text-secondary font-bold">P9P9 BAKERY</span><br>
+                    介绍：社区型面包店，主打现烤面包与甜点，如牛角包、戚风蛋糕等，用料新鲜，价格亲民，部分产品每日限量供应。<br>
+                    评价：面包口感松软、性价比高，现烤香气浓郁；但门店面积较小，高峰时段座位紧张，热门面包下午易卖空。<br>
+                    地址：龙华路 1 号负一层（江北虹悦城）<br><br>
+                    <span class="text-secondary font-bold">砂之船奥莱</span><br>
+                    介绍：大型奥特莱斯购物中心，汇集众多国际国内品牌，涵盖服饰、鞋包、家居等，以折扣销售为主，配套餐饮与休闲设施。<br>
+                    评价：品牌全、折扣力度大，性价比高；但位置较偏，建议自驾前往，部分品牌断码情况较明显，需耐心挑选。<br>
+                    地址：秣周东路 18 号
+                   </p>
+                <img src="./images/al.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+        </div>
+
+        <!-- 6. 桥北商圈 -->
+        <div class="bg-black/70 rounded-xl p-6 md:p-8 mb-12 card-shadow transition-all hover:shadow-lg">
+                <h2 class="text-center-bold border-b border-blue-100 pb-4">桥北商圈</h2>
+                    
+        <!-- 购物点1（可修改） -->
+        <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                    <p class="text-white text-lg w-full md:w-1/2">
+                        <span class="text-secondary font-bold">kkv</span><br>
+                       介绍：大型生活好物集合店，店内空间开阔，分区明晰，涵盖美妆、零食、文具、玩具等海量品类，商品风格多样且常更新。​<br>
+                       评价：品类超全，一站式购物超方便，网红商品多。不过周末人多，部分商品价格偏贵。<br>
+                       地址：弘阳广场 C 馆 1 楼​<br><br>
+                       <span class="text-secondary font-bold">UH 祐禾</span><br>
+                       介绍：人气面包烘焙店，主打各类新鲜现烤面包，面包香气弥漫店内。招牌有碱水面包、麻薯等，食材新鲜优质。​<br>
+                       评价：面包口感好，松软香甜，用料讲究。开业活动力度大，排队人多，热门款易售罄。​
+                       地址：浦口区印象汇​
+        ​               </p>
+                <img src="./images/yh.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+                    
+        <!-- 购物点2（可修改） -->
+        <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                    <p class="text-white text-lg w-full md:w-1/2">
+                        <span class="text-secondary font-bold">永辉超市</span><br>
+                       介绍：升级后的超市，新增诸多商品，鲜食品类占比提升。能买到胖东来明星产品，商品信息标注详细。​<br>
+                       评价：商品丰富，生鲜新鲜，服务贴心。刚开业时火爆，日常客流也较多。<br>
+                       地址：江北新区文景路 99 号龙湖南京江北天街负一楼 B1-201 号​<br><br>
+                       <span class="text-secondary font-bold">三福</span><br>
+                      介绍：时尚百货店，服装、饰品、美妆、家居小物等应有尽有，紧跟潮流，价格亲民。​<br>
+                      评价：款式多样，性价比高，常能淘到好物。但店内空间有时显拥挤，试衣间需排队。​<br>
+                      地址：大桥北路 48 号弘阳广场 C2C3 馆 2 楼 212 - 213 号​
+        ​               </p>
+                <img src="./images/yhcs.jpg"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+                    
+        <!-- 购物点3（可修改） -->
+        <div class="flex flex-col md:flex-row items-center gap-6">
+                     <p class="text-white text-lg w-full md:w-1/2">
+                        <span class="text-secondary font-bold">ablueberry</span><br>
+                      介绍：风格独特的服装店，服饰款式新颖，融合多种流行元素，有不少小众设计款。​<br>
+                      评价：衣服好看，能穿出个性，店员搭配建议实用。价格有高有低，部分折扣时入手划算。​<br>
+                      地址：大桥北路 48 号弘阳广场 B 馆 1 楼​<br><br>
+                       <span class="text-secondary font-bold">DISCUS MART</span><br>
+                      介绍：印象汇服饰鞋包人气榜第六名，风格独特。​<br>
+                      评价：处于印象汇一楼，位置优越，店铺模特吸引人，服饰具有设计感 。<br>
+                      地址：大桥北路 58 号南京江北印象汇 1F01 - 24 号​<br>
+                    </p>
+                <img src="./images/abb2.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+        </div>
+
+        <!-- 7. 百家湖商圈 -->
+        <div class="bg-black/70 rounded-xl p-6 md:p-8 mb-12 card-shadow transition-all hover:shadow-lg">
+                <h2 class="text-center-bold border-b border-blue-100 pb-4">百家湖商圈</h2>
+                    
+        <!-- 购物点1（可修改） -->
+        <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                        <p class="text-white text-lg w-full md:w-1/2">
+                        <span class="text-secondary font-bold">三丽鸥 Sanrio Gift Gate</span><br>
+                        介绍：三丽鸥官方授权店，主营 Hello Kitty、玉桂狗等 IP 周边，涵盖毛绒玩偶、文具、饰品等，门店装修粉嫩，充满少女心。<br>
+                        评价：正版 IP 商品全，颜值高好打卡；但价格偏中高，热门款易断货，节假日家长带娃客流多，挑选需错峰。<br>
+                        地址：双龙大道 1698 号景枫中心负一层 B124-1<br><br>
+                        <span class="text-secondary font-bold">番茄口袋</span><br>
+                        介绍：潮流文创集合店，含文具、盲盒、家居小物、小众饰品等，按主题分区，定期上新，适合年轻人淘趣味好物。<br>
+                        评价：品类丰富好逛，性价比高；但部分区域陈列密集，高峰时段动线拥挤，热门盲盒需拼手速。<br>
+                        地址：双龙大道 1698 号景枫中心 B1 层 B129</p>
+                <img src="./images/fq.jpg"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+                    
+        <!-- 购物点2（可修改） -->
+        <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                        <p class="text-white text-lg w-full md:w-1/2">
+                            <span class="text-secondary font-bold">ball&chain</span><br>
+                            介绍：潮流配饰店，主营项链、手链、耳环等，风格偏街头个性，部分为设计师联名款，可试戴后选购。<br>
+                            评价：款式独特不易撞款，搭配度高；但部分金属配饰易氧化，需注意保养，价格区间大，丰俭由人。<br>
+                            地址：景枫中心 B1 中庭<br><br>
+                            <span class="text-secondary font-bold">July Lion</span><br>
+                            介绍：中药毛绒挂件店，兼具装饰性与趣味性，部分款式含小巧挂绳，适配背包、钥匙等场景。​<br>
+                            评价：毛绒材质柔软亲肤，连锁店品控稳定，适合自留或送创意礼物；热门毛茸挂件易断货，节假日选购需错峰。<br>
+                            地址：景枫中心 B1</p>
+                <img src="./images/july.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+                    
+        <!-- 购物点3（可修改） -->
+        <div class="flex flex-col md:flex-row items-center gap-6">
+                        <p class="text-white text-lg w-full md:w-1/2">
+                            <span class="text-secondary font-bold">CIAO PANIFICIO 意大利面包博物馆</span><br>
+                            介绍：主打意式现烤面包的店，品类含恰巴塔、佛卡夏等，采用进口原料，现烤现卖，门店有开放式烘焙区。<br>
+                            评价：面包麦香浓郁、口感有嚼劲，意式风味正宗；但价格比普通面包店高，部分款式需提前预订。<br>
+                            地址：双龙大道 1698 号景枫中心 F123-2<br><br>
+                            <span class="text-secondary font-bold">Doopa</span><br>
+                            介绍：主打时尚服饰的零售店铺，聚焦休闲、日常穿搭风格，涵盖上衣、裤子、裙装等基础款与潮流款，版型适配多数人群，定价偏向亲民路线，适合日常选购穿搭单品。<br>
+                            评价：服饰款式简约实穿，性价比高，更新频率适中，适合快速搭配日常造型；部分热门尺码易断货，建议到店试穿后选购，门店服务态度较好，会提供穿搭建议。<br>
+                            地址：江宁金鹰 B1</p>
+                <img src="./images/mb.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+        </div>
+
+        <!-- 8. 仙林商圈 -->
+        <div class="bg-black/70 rounded-xl p-6 md:p-8 mb-12 card-shadow transition-all hover:shadow-lg">
+                <h2 class="text-center-bold border-b border-blue-100 pb-4">仙林商圈</h2>
+                    
+        <!-- 购物点1（可修改） -->
+        <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                        <p class="text-white text-lg w-full md:w-1/2">
+                            <span class="text-secondary font-bold">当顿文具社</span><br>
+                            介绍：高颜值文具集合店，涵盖手账用品、笔具、文创周边等，按风格分区陈列，还设 DIY 装饰区，适合学生与文具爱好者。​<br>
+                            评价：文具款式新颖、颜值高，逛买体验好；但部分进口文具价格偏高，热门手账素材易断货，建议早入手。​<br>
+                            地址：学海路仙林金鹰湖滨天地 2 期负一楼​<br><br>
+                            <span class="text-secondary font-bold">OCE</span><br>
+                            介绍：生活方式集合店，涵盖服饰、家居、绿植等，风格简约北欧风，商品设计实用且具美感，适合打造日常舒适生活场景。​<br>
+                            评价：商品质感好、搭配性强，购物环境舒适；但服饰尺码选择较少，部分家居用品价格略高，折扣活动较少。​<br>
+                            地址：仙林街道学海路 1 号仙林金鹰二期​</p>
+                <img src="./images/oce.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+                    
+        <!-- 购物点2（可修改） -->
+        <div class="mb-8 flex flex-col md:flex-row items-center gap-6">
+                        <p class="text-white text-lg w-full md:w-1/2">
+                            <span class="text-secondary font-bold">金鹰奥莱城</span><br>
+                            介绍：大型奥莱商场，汇集众多运动、休闲及轻奢品牌，以折扣销售为主，配套餐饮、亲子设施，适合全家休闲购物。​<br>
+                            评价：品牌多、折扣力度大，性价比高；但部分品牌款式偏旧，周末亲子客流多，停车需提前找位。​<br>
+                            地址：金鹰湖滨天地一期​<br><br>
+                            <span class="text-secondary font-bold">wooha</span><br>
+                            介绍：潮流女装店，主打甜酷、辣妹风格服饰，设计感强，含上衣、裙子、配饰等，款式紧跟当下流行趋势。​<br>
+                            评价：衣服风格独特、显身材，适合年轻女性；但部分款式尺码偏小，面料偏薄，需注意查看材质说明。​<br>
+                            地址：金鹰湖滨天地 B1​</p>
+                <img src="./images/alc.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+                    
+        <!-- 购物点3（可修改） -->
+        <div class="flex flex-col md:flex-row items-center gap-6">
+                        <p class="text-white text-lg w-full md:w-1/2">
+                            <span class="text-secondary font-bold">哆唻咪</span><br>
+                            介绍：亲子游乐与益智玩具店，涵盖儿童玩具、绘本、手工体验项目，环境温馨安全，适合带娃休闲互动。​<br>
+                            评价：玩具品类丰富、安全性高，手工体验有趣；但周末客流多，部分热门玩具需排队体验，手工项目需额外付费。<br>
+                            地址：学津路 1 号金鹰湖滨天地二期 B1 层 033-1 室​<br><br>
+                            <span class="text-secondary font-bold">嗨特购 HitGoo</span><br>
+                            介绍：折扣零售集合店，主营零食、美妆小样、日用百货，以临期或过季商品为主，价格低廉，商品更新快。​<br>
+                            评价：价格实惠、品类丰富，适合囤货；但需仔细核对临期商品保质期，美妆小样规格较小，部分日用品包装有轻微磨损。​<br>
+                            地址：金鹰湖滨天地 B1 层 B1-026​</p>
+                <img src="./images/ht.png"  class="w-full md:w-1/2 h-64 md:h-72 object-cover rounded-lg shadow-md">
+            </div>
+        </div>
+
+        <!-- 特色打卡点区域（不按商圈分类） -->
+<div class="bg-black/70 rounded-xl p-6 md:p-8 mt-16">
+    <h2 class="text-center font-bold text-2xl md:text-3xl text-primary mb-10 pb-4 border-b border-blue-100">特色打卡点推荐</h2>
+    
+    <!-- 打卡点容器：采用5列布局，移动端自动换行 -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <!-- 打卡点1：德基美术馆 -->
+        <div class="bg-white rounded-lg p-4 shadow-md flex flex-col h-full">
+            <img src="./images/dk1.png" alt="德基美术馆展览场景" class="w-full h-48 object-cover rounded-lg mb-4">
+            <div class="flex flex-col flex-grow">
+                <h3 class="text-xl font-bold text-secondary mb-3">德基美术馆</h3>
+                <p class="text-gray-700 text-sm mb-4 flex-grow">位于德基广场二期8层，以"当代艺术与经典传承"为定位，定期举办国内外顶尖艺术家展览，馆内空间设计简洁大气。</p>
+                <p class="text-gray-600 text-xs flex items-center"><i class="fa-solid fa-map-marker-alt mr-2 text-red-500"></i>南京市玄武区中山路18号</p>
+            </div>
+        </div>
+        
+        <!-- 打卡点2：德基网红洗手间 -->
+        <div class="bg-white rounded-lg p-4 shadow-md flex flex-col h-full">
+            <img src="./images/dk2.png" alt="德基网红洗手间内部" class="w-full h-48 object-cover rounded-lg mb-4">
+            <div class="flex flex-col flex-grow">
+                <h3 class="text-xl font-bold text-secondary mb-3">德基网红洗手间</h3>
+                <p class="text-gray-700 text-sm mb-4 flex-grow">德基广场各楼层洗手间以"奢华体验"闻名，不同楼层采用不同设计风格，配备高端洗护用品与补妆台，是"隐藏打卡点"。</p>
+                <p class="text-gray-600 text-xs flex items-center"><i class="fa-solid fa-map-marker-alt mr-2 text-red-500"></i>南京市玄武区中山路18号</p>
+            </div>
+        </div>
+        
+        <!-- 打卡点3：新街口孙中山铜像 -->
+        <div class="bg-white rounded-lg p-4 shadow-md flex flex-col h-full">
+            <img src="./images/dk3.jpg" alt="新街口孙中山铜像" class="w-full h-48 object-cover rounded-lg mb-4">
+            <div class="flex flex-col flex-grow">
+                <h3 class="text-xl font-bold text-secondary mb-3">新街口孙中山铜像</h3>
+                <p class="text-gray-700 text-sm mb-4 flex-grow">位于新街口广场中心，是南京重要历史地标，铜像高5.3米，庄严肃穆，周边环绕各大商场，是拍照标志性位置。</p>
+                <p class="text-gray-600 text-xs flex items-center"><i class="fa-solid fa-map-marker-alt mr-2 text-red-500"></i>南京市玄武区新街口广场</p>
+            </div>
+        </div>
+        
+        <!-- 打卡点4：piggyoo人生四格漫画店 -->
+        <div class="bg-white rounded-lg p-4 shadow-md flex flex-col h-full">
+            <img src="./images/dk4.jpg" alt="piggyoo人生四格漫画店拍照区" class="w-full h-48 object-cover rounded-lg mb-4">
+            <div class="flex flex-col flex-grow">
+                <h3 class="text-xl font-bold text-secondary mb-3">piggyoo人生四格漫画店</h3>
+                <p class="text-gray-700 text-sm mb-4 flex-grow">韩式网红自拍馆，主打"人生四格"拍照模式，提供多种背景板与道具，照片即时打印，适合闺蜜、情侣记录瞬间。</p>
+                <p class="text-gray-600 text-xs flex items-center"><i class="fa-solid fa-map-marker-alt mr-2 text-red-500"></i>南京市秦淮区中山南路122号</p>
+            </div>
+        </div>
+        
+        <!-- 打卡点5：今日记忆照相馆 -->
+        <div class="bg-white rounded-lg p-4 shadow-md flex flex-col h-full">
+            <img src="./images/dk5.jpg" alt="今日记忆照相馆拍摄场景" class="w-full h-48 object-cover rounded-lg mb-4">
+            <div class="flex flex-col flex-grow">
+                <h3 class="text-xl font-bold text-secondary mb-3">今日记忆照相馆</h3>
+                <p class="text-gray-700 text-sm mb-4 flex-grow">专注高品质人像拍摄，提供证件照、写真照等服务，配备专业化妆师与摄影师，后期修图自然精致。</p>
+                <p class="text-gray-600 text-xs flex items-center"><i class="fa-solid fa-map-marker-alt mr-2 text-red-500"></i>南京市建邺区江东中路341号</p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <!-- 右下角功能按钮组 -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-10">
+        <!-- 返回上一页按钮 -->
+        <button onclick="window.history.back()" 
+                class="bg-gray-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-800 transition-colors"
+                title="返回上一页">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <!-- 回到顶部按钮 -->
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition-colors"
+                title="回到顶部">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+</body>
+
+</html>

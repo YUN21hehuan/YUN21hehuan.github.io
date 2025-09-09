@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夫子庙商圈</title>
+    <!-- 引入Tailwind CSS用于样式美化 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome用于图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        html {
+          scroll-behavior: smooth; /* 滚动时平滑过渡，体验更好 */
+      }
+          body {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-image: url("./images/a.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          }
+          /* 统一设置最大宽度变量 */
+          :root {
+            --max-content-width: 7xl; /* 与主页面网格容器最大宽度一致 */
+          }
+          /* 商场卡片hover效果 */
+        .mall-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .mall-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.12);
+        }
+        /* 双图容器样式（横版适配） */
+        .dual-image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .dual-image-container img {
+            flex: 1 1 calc(50% - 0.25rem);
+            min-width: 280px; /* 移动端最小宽度，避免图片过窄 */
+            height: 280px; /* 固定高度，保证横版比例统一 */
+            object-cover: cover; /* 裁剪图片，避免变形 */
+            border-radius: 0.75rem;
+        }
+        /* 文字段落间距优化 */
+        .content-paragraph {
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+      </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- 页面标题区域 -->
+    <header class="py-8 px-4 md:px-8 lg:px-16 bg-transparent shadow-sm max-w-7xl mx-auto">
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-900">夫子庙商圈</h1>
+        <div class="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+    </header>
+
+    <!-- 商圈概况介绍 - 与商场卡片使用相同的容器样式 -->
+    <section class="py-8 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+        <div class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-12">
+            <div class="flex items-center mb-5">
+                <i class="fa-solid fa-map-location-dot text-blue-600 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">商圈概况介绍</h2>
+            </div>
+            <p class="text-gray-600 content-paragraph">
+                夫子庙商圈位于南京秦淮区，共168万平方米，属于传统成熟商圈，是中高端综合性商业功能区。
+            </p>
+            <p class="text-gray-600 content-paragraph">
+                夫子庙商圈紧邻秦淮河，依托绝佳历史古韵的地段，融合孔庙、学宫、江南贡院等夫子庙古建筑群，夫子庙商圈吸引着源源不断的游客。夫子庙商圈极具江南风韵的商业街融合现代商业综合体，极具辨识度。而无论是早年开业的水游城，还是近年亮相的万象天地，都带动着夫子庙商圈焕新升级，孕育着新的商业契机。
+            </p>
+        </div>
+    </section>
+
+    <!-- 核心内容容器（商场介绍）- 与商圈介绍使用相同的容器样式 -->
+    <main class="py-4 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+        <!-- 第一个商场 -->
+        <section class="mall-card bg-white rounded-xl shadow-md overflow-hidden p-6 md:p-8 mb-12">
+            <!-- 商场标题 -->
+            <div class="flex items-center mb-6">
+                <i class="fa-solid fa-building-columns text-blue-500 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">水游城</h2>
+            </div>
+
+            <!-- 商场文字介绍 -->
+            <div class="mb-6">
+                <p class="text-gray-600 content-paragraph">
+                    南京水游城是一个大型综合性商业项目，建筑面积16.7万平方米，位于江苏省南京市建康路和中华路交叉路口、夫子庙商圈核心地段，距离南京商业集群新街口2公里，处在城市中心轴线上，属于南京5分钟都市生活圈繁荣核心地带。
+                </p>
+                <p class="text-gray-600 content-paragraph">
+                    “水游城”是以流动的水为主体，营造的一个集购物、休闲、餐饮、娱乐、旅游、文化等为一体的休闲购物主题公园。其中包括若干国际品牌的主力店及次主力店，业态以时尚、新潮为主流；院线影城；餐饮包括异国风情美食街，大型特色餐饮，咖啡座、甜品屋、面包坊、茶餐厅地方以及风味小吃，根据不同消费群体分设于各个楼面。
+                </p>
+            </div>
+
+            <!-- 双图展示（横版，可替换） -->
+            <div class="dual-image-container mb-6">
+                <img src="./images/syc-1.jpg" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+                <img src="./images/syc-2.jpg"
+                     class="hover:scale-[1.02] transition-transform duration-300">
+            </div>
+
+            <!-- 商场关键信息 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-location-dot text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>地址：南京市秦淮区建康路1号</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-clock text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>营业时间：10:00-22:00（周末无延长）</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-tags text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>定位：大型综合性商业项目</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-star text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>特色：年轻力社交中心、多元业态融合、特色活动丰富</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二个商场 -->
+        <section class="mall-card bg-white rounded-xl shadow-md overflow-hidden p-6 md:p-8">
+            <!-- 商场标题 -->
+            <div class="flex items-center mb-6">
+                <i class="fa-solid fa-store text-red-500 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">水平方</h2>
+            </div>
+
+            <!-- 商场文字介绍 -->
+            <div class="mb-6">
+                <p class="text-gray-600 content-paragraph">
+                    水平方是江苏亚东建设发展集团开发的商业地产项目，位于南京市秦淮区建康路3号夫子庙商圈，总建筑面积6万平方米，总投资9亿元。项目由主楼17层商务酒店和商业裙楼构成，定位为"提案型时尚集合地"，聚焦16-35岁女性客群，业态涵盖服饰、餐饮、休闲娱乐等 。外立面设计以雨花石为灵感，内部设有水景舞台及自然主题装修，地铁1、3号线通达，毗邻水游城与夫子庙景区 。
+                </p>
+                <p class="text-gray-600 content-paragraph">
+                    2013年开业后，水平方通过引入i.t、雅柔等首入南京品牌及外婆家、星巴克等餐饮主力店 ，成为南京商业考察热点 。2015年与飞凡网合作启动互联网化改造，实现智能停车、会员互通等功能 。物业由南京水平方商业管理有限公司运营，2021年参与城南茂商业广场开发。
+                </p>
+            </div>
+
+            <!-- 双图展示（横版，可替换） -->
+            <div class="dual-image-container mb-6">
+                <img src="./images/spf-1.jpg" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+                <img src="./images/spf-2.jpg" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+            </div>
+
+            <!-- 商场关键信息 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-location-dot text-red-500 mr-2 w-5 text-center"></i>
+                    <span>地址：南京市秦淮区建康路3号</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-clock text-red-500 mr-2 w-5 text-center"></i>
+                    <span>营业时间：10:00-22:00（周末无延长）</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-tags text-red-500 mr-2 w-5 text-center"></i>
+                    <span>定位：商业综合体</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-star text-red-500 mr-2 w-5 text-center"></i>
+                    <span>特色：独特建筑设计、丰富商业资源、多样文化活动</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 右下角功能按钮组 -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-10">
+        <!-- 返回上一页按钮 -->
+        <button onclick="window.history.back()" 
+                class="bg-gray-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-800 transition-colors"
+                title="返回上一页">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <!-- 回到顶部按钮 -->
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition-colors"
+                title="回到顶部">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        // 图片加载失败处理
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.src = 'https://picsum.photos/600/400';
+                this.alt = '商场默认展示图';
+            });
+        });
+
+        // 页面加载动画
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease';
+        });
+    </script>
+
+</body>
+</html>

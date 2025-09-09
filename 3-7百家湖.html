@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百家湖商圈</title>
+    <!-- 引入Tailwind CSS用于样式美化 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome用于图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        html {
+          scroll-behavior: smooth; /* 滚动时平滑过渡，体验更好 */
+      }
+          body {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-image: url("./images/a.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          }
+          /* 统一设置最大宽度变量 */
+          :root {
+            --max-content-width: 7xl; /* 与主页面网格容器最大宽度一致 */
+          }
+          /* 商场卡片hover效果 */
+        .mall-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .mall-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.12);
+        }
+        /* 双图容器样式（横版适配） */
+        .dual-image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .dual-image-container img {
+            flex: 1 1 calc(50% - 0.25rem);
+            min-width: 280px; /* 移动端最小宽度，避免图片过窄 */
+            height: 280px; /* 固定高度，保证横版比例统一 */
+            object-cover: cover; /* 裁剪图片，避免变形 */
+            border-radius: 0.75rem;
+        }
+        /* 文字段落间距优化 */
+        .content-paragraph {
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+      </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- 页面标题区域 -->
+    <header class="py-8 px-4 md:px-8 lg:px-16 bg-transparent shadow-sm max-w-7xl mx-auto">
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-900">百家湖商圈</h1>
+        <div class="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+    </header>
+
+    <!-- 商圈概况介绍 - 与商场卡片使用相同的容器样式 -->
+    <section class="py-8 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+        <div class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-12">
+            <div class="flex items-center mb-5">
+                <i class="fa-solid fa-map-location-dot text-blue-600 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">商圈概况介绍</h2>
+            </div>
+            <p class="text-gray-600 content-paragraph">
+                百家湖商圈位于南京市江宁区，共929万平方米，属于区域核心商圈，是中高端综合性商业功能区。
+            </p>
+            <p class="text-gray-600 content-paragraph">
+                百家湖商圈位于南京南部区域，是江宁区的商业中心，依托于百家湖的独特自然资源，滨湖的百家湖商圈商业聚集度高且人气居高不下，同时在商业创新上也有不少亮点。近年来，百家湖商圈既迎来了景枫KINGMO、金鹰天地广场（江宁店）两大高能级的购物中心，同时也出现了百家湖1912这样的创新商业项目，整体商业能级偏高。            
+            </p>
+        </div>
+    </section>
+
+    <!-- 核心内容容器（商场介绍）- 与商圈介绍使用相同的容器样式 -->
+    <main class="py-4 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+        <!-- 第一个商场 -->
+        <section class="mall-card bg-white rounded-xl shadow-md overflow-hidden p-6 md:p-8 mb-12">
+            <!-- 商场标题 -->
+            <div class="flex items-center mb-6">
+                <i class="fa-solid fa-building-columns text-blue-500 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">景枫中心</h2>
+            </div>
+
+            <!-- 商场文字介绍 -->
+            <div class="mb-6">
+                <p class="text-gray-600 content-paragraph">
+                    景枫中心是江苏景枫投资控股集团有限公司旗下的购物中心，位于南京市江宁区。
+                <p class="text-gray-600 content-paragraph">
+                    建造城市级地标设施，致力于为追求先锋与品质的新都市核心人群，以差异化经营为导向，从产品力和营销力两大维度切入，为区域消费者提供丰盛的商业资源与生活体验。           
+                 </div>
+
+            <!-- 双图展示（横版，可替换） -->
+            <div class="dual-image-container mb-6">
+                <img src="./images/jfzx-1.png" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+                <img src="./images/jfzx-2.png"
+                     class="hover:scale-[1.02] transition-transform duration-300">
+            </div>
+
+            <!-- 商场关键信息 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-location-dot text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>地址：南京市江宁区双龙大道1698号</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-clock text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>营业时间：10:00-22:00（周五、周六延长至22:30）</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-tags text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>定位：购物中心</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-star text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>特色：首店与首发经济驱动、宠物友好、在地文化 “再地” 社区</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二个商场 -->
+        <section class="mall-card bg-white rounded-xl shadow-md overflow-hidden p-6 md:p-8">
+            <!-- 商场标题 -->
+            <div class="flex items-center mb-6">
+                <i class="fa-solid fa-store text-red-500 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">金鹰天地广场</h2>
+            </div>
+
+            <!-- 商场文字介绍 -->
+            <div class="mb-6">
+                <p class="text-gray-600 content-paragraph">
+                    南京金鹰天地广场（江宁店）是金鹰集团打造的江宁核心商圈地标综合体，总建筑面积超25万㎡。
+                <p class="text-gray-600 content-paragraph">
+                    集高端购物、餐饮娱乐、商务办公于一体，汇聚国际名品、亲子乐园、影院等多元业态，配备智能停车及屋顶花园，打造全客层时尚生活体验中心。
+            </div>
+
+            <!-- 双图展示（横版，可替换） -->
+            <div class="dual-image-container mb-6">
+                <img src="./images/jytd-1.png" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+                <img src="./images/jytd-2.png" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+            </div>
+
+            <!-- 商场关键信息 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-location-dot text-red-500 mr-2 w-5 text-center"></i>
+                    <span>地址：南京市江宁区双龙大道1688号</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-clock text-red-500 mr-2 w-5 text-center"></i>
+                    <span>营业时间：10:00-22:00（周五、周六延长至22:30）</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-tags text-red-500 mr-2 w-5 text-center"></i>
+                    <span>定位：大型商业广场</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-star text-red-500 mr-2 w-5 text-center"></i>
+                    <span>特色：“商办一体 + 全生活中心”、屋顶花园 + 智能停车</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 右下角功能按钮组 -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-10">
+        <!-- 返回上一页按钮 -->
+        <button onclick="window.history.back()" 
+                class="bg-gray-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-800 transition-colors"
+                title="返回上一页">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <!-- 回到顶部按钮 -->
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition-colors"
+                title="回到顶部">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        // 图片加载失败处理
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.src = 'https://picsum.photos/600/400';
+                this.alt = '商场默认展示图';
+            });
+        });
+
+        // 页面加载动画
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease';
+        });
+    </script>
+
+</body>
+</html>

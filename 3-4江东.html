@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>江东商圈</title>
+    <!-- 引入Tailwind CSS用于样式美化 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome用于图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        html {
+          scroll-behavior: smooth; /* 滚动时平滑过渡，体验更好 */
+      }
+          body {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-image: url("./images/a.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          }
+          /* 统一设置最大宽度变量 */
+          :root {
+            --max-content-width: 7xl; /* 与主页面网格容器最大宽度一致 */
+          }
+          /* 商场卡片hover效果 */
+        .mall-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .mall-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.12);
+        }
+        /* 双图容器样式（横版适配） */
+        .dual-image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .dual-image-container img {
+            flex: 1 1 calc(50% - 0.25rem);
+            min-width: 280px; /* 移动端最小宽度，避免图片过窄 */
+            height: 280px; /* 固定高度，保证横版比例统一 */
+            object-cover: cover; /* 裁剪图片，避免变形 */
+            border-radius: 0.75rem;
+        }
+        /* 文字段落间距优化 */
+        .content-paragraph {
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+      </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- 页面标题区域 -->
+    <header class="py-8 px-4 md:px-8 lg:px-16 bg-transparent shadow-sm max-w-7xl mx-auto">
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-900">江东商圈</h1>
+        <div class="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+    </header>
+
+    <!-- 商圈概况介绍 - 与商场卡片使用相同的容器样式 -->
+    <section class="py-8 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+        <div class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-12">
+            <div class="flex items-center mb-5">
+                <i class="fa-solid fa-map-location-dot text-blue-600 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">商圈概况介绍</h2>
+            </div>
+            <p class="text-gray-600 content-paragraph">
+                江东商圈位于南京市建邺区，共338万平方米，属于新兴商圈，是中高端综合性商业功能区。
+            </p>
+            <p class="text-gray-600 content-paragraph">
+                江东商圈是南京河西新城的商业核心区，位于元通商圈以北。据了解，江东商圈建设区商业总面积排在南京全市第一，甚至超越了新街口。当前，商圈内聚集着金鹰世界、建邺万达广场、建邺吾悦广场等高能级购物中心，整体商业势能较高，且仍有较大发展前景。            </p>
+        </div>
+    </section>
+
+    <!-- 核心内容容器（商场介绍）- 与商圈介绍使用相同的容器样式 -->
+    <main class="py-4 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+        <!-- 第一个商场 -->
+        <section class="mall-card bg-white rounded-xl shadow-md overflow-hidden p-6 md:p-8 mb-12">
+            <!-- 商场标题 -->
+            <div class="flex items-center mb-6">
+                <i class="fa-solid fa-building-columns text-blue-500 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">金鹰世界</h2>
+            </div>
+
+            <!-- 商场文字介绍 -->
+            <div class="mb-6">
+                <p class="text-gray-600 content-paragraph">
+                    金鹰世界是位于江苏省南京市建邺区河西新城的三塔连体建筑综合体，由裙楼及三栋超高层塔楼构成，总建筑面积91.8万平方米，通过44-48层两万平方米空中连廊串联，配备190米高空非对称钢结构空中平台，是全球最高三塔连体建筑 。
+                <p class="text-gray-600 content-paragraph">
+                    建筑群涵盖高端商务写字楼、奢华酒店、医疗健康中心及全业态商业空间，A塔规划南京首家奢华型酒店（G Hotel），B塔引入WeWork智能办公，C塔设有8万平方米医疗健康中心            </div>
+
+            <!-- 双图展示（横版，可替换） -->
+            <div class="dual-image-container mb-6">
+                <img src="./images/jysj-1.jpg" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+                <img src="./images/jysj-2.jpg"
+                     class="hover:scale-[1.02] transition-transform duration-300">
+            </div>
+
+            <!-- 商场关键信息 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-location-dot text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>地址：南京河西应天大街888号</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-clock text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>营业时间：10:00-22:00（周末无延长）</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-tags text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>定位：三塔连体建筑综合体</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-star text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>特色：城市地标+云端体验、全生活中心+高端业态</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二个商场 -->
+        <section class="mall-card bg-white rounded-xl shadow-md overflow-hidden p-6 md:p-8">
+            <!-- 商场标题 -->
+            <div class="flex items-center mb-6">
+                <i class="fa-solid fa-store text-red-500 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">建邺万达广场</h2>
+            </div>
+
+            <!-- 商场文字介绍 -->
+            <div class="mb-6">
+                <p class="text-gray-600 content-paragraph">
+                    南京万达广场占地达39万平方米，总投资100亿元，建筑面积达120万平方米，是南京市最大的商业地产项目。
+                <p class="text-gray-600 content-paragraph">
+                    其中，项目包括一站式购物中心、白金五星级酒店、旅游商业街，以及写字楼和高端城市公寓。规模巨大的南京万达广场不仅能满足建邺区人民的消费需求，更能辐射全市，引发南京商业格局重心的转移。
+            </div>
+
+            <!-- 双图展示（横版，可替换） -->
+            <div class="dual-image-container mb-6">
+                <img src="./images/wd-1.jpg" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+                <img src="./images/wd-2.jpg" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+            </div>
+
+            <!-- 商场关键信息 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-location-dot text-red-500 mr-2 w-5 text-center"></i>
+                    <span>地址：南京市建邺区江东中路98号</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-clock text-red-500 mr-2 w-5 text-center"></i>
+                    <span>营业时间：10:00-22:00（周末无延长）</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-tags text-red-500 mr-2 w-5 text-center"></i>
+                    <span>定位：大型城市广场</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-star text-red-500 mr-2 w-5 text-center"></i>
+                    <span>特色：一站式+全龄友好、最长室内步行街</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 右下角功能按钮组 -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-10">
+        <!-- 返回上一页按钮 -->
+        <button onclick="window.history.back()" 
+                class="bg-gray-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-800 transition-colors"
+                title="返回上一页">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <!-- 回到顶部按钮 -->
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition-colors"
+                title="回到顶部">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        // 图片加载失败处理
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.src = 'https://picsum.photos/600/400';
+                this.alt = '商场默认展示图';
+            });
+        });
+
+        // 页面加载动画
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease';
+        });
+    </script>
+
+</body>
+</html>

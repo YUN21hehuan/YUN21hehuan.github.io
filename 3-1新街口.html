@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新街口商圈</title>
+    <!-- 引入Tailwind CSS用于样式美化 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome用于图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        html {
+          scroll-behavior: smooth; /* 滚动时平滑过渡，体验更好 */
+      }
+          body {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-image: url("./images/a.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          }
+          /* 统一设置最大宽度变量 */
+          :root {
+            --max-content-width: 7xl; /* 与主页面网格容器最大宽度一致 */
+          }
+          /* 商场卡片hover效果 */
+        .mall-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .mall-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.12);
+        }
+        /* 双图容器样式（横版适配） */
+        .dual-image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .dual-image-container img {
+            flex: 1 1 calc(50% - 0.25rem);
+            min-width: 280px; /* 移动端最小宽度，避免图片过窄 */
+            height: 280px; /* 固定高度，保证横版比例统一 */
+            object-cover: cover; /* 裁剪图片，避免变形 */
+            border-radius: 0.75rem;
+        }
+        /* 文字段落间距优化 */
+        .content-paragraph {
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+      </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- 页面标题区域 -->
+    <header class="py-8 px-4 md:px-8 lg:px-16 bg-transparent shadow-sm max-w-7xl mx-auto">
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-900">新街口商圈</h1>
+        <div class="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+    </header>
+
+    <!-- 商圈概况介绍 - 与商场卡片使用相同的容器样式 -->
+    <section class="py-8 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+        <div class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-12">
+            <div class="flex items-center mb-5">
+                <i class="fa-solid fa-map-location-dot text-blue-600 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">商圈概况介绍</h2>
+            </div>
+            <p class="text-gray-600 content-paragraph">
+                新街口商圈位于南京秦淮区，共785万平方米，属于市级核心商圈，是国际消费中心、城市核心承载区。新街口商圈作为“中华第一商圈”，无疑是南京资历最深的商业“一哥”。而在最新的规划中，新街口定位为国际消费中心，不仅能辐射常州、无锡等南京都市圈的城市群，更具备“国际会客厅”的功能，商圈能级不言而喻。
+            </p>
+            <p class="text-gray-600 content-paragraph">
+                当前，新街口商圈聚集着高端、中高端商业“F4”：即德基广场、中央商场、南京新百、金鹰国际购物中心，吸金力强劲。商圈内交通网络密集，地铁1号线、2号线交汇于新街口站，数十条公交线路途经，日均人流量超50万人次，是南京商业活力最集中的区域。
+            </p>
+        </div>
+    </section>
+
+    <!-- 核心内容容器（商场介绍）- 与商圈介绍使用相同的容器样式 -->
+    <main class="py-4 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto">
+        <!-- 第一个商场：德基广场 -->
+        <section class="mall-card bg-white rounded-xl shadow-md overflow-hidden p-6 md:p-8 mb-12">
+            <!-- 商场标题 -->
+            <div class="flex items-center mb-6">
+                <i class="fa-solid fa-building-columns text-blue-500 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">德基广场</h2>
+            </div>
+
+            <!-- 商场文字介绍 -->
+            <div class="mb-6">
+                <p class="text-gray-600 content-paragraph">
+                    德基广场位于新街口中山路18号，是南京高端商业的标杆项目，分为一期（2006年开业）和二期（2012年开业），总建筑面积约26万平方米。商场以“奢侈品+高端生活”为定位，汇聚了LV、Gucci、Prada、Hermès等超150个国际一线品牌，其中多个品牌为江苏首店或南京首店。
+                </p>
+                <p class="text-gray-600 content-paragraph">
+                    除商业零售外，德基广场还注重文化与体验感：负一楼“德基艺术空间”定期举办当代艺术展览；7-8楼聚集了米其林餐厅、黑珍珠餐厅等高端餐饮；“网红洗手间”因风格多样（赛博朋克风、欧式复古风等）成为打卡点，进一步提升了商场的话题度和客流量。
+                </p>
+            </div>
+
+            <!-- 双图展示（横版，可替换） -->
+            <div class="dual-image-container mb-6">
+                <img src="./images/dj-1.jpg" 
+                     alt="德基广场外立面夜景，玻璃幕墙搭配灯光装饰" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+                <img src="./images/dj-2.jpg"
+                     alt="德基广场内部奢侈品商铺区域，装修精致大气" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+            </div>
+
+            <!-- 商场关键信息 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-location-dot text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>地址：南京市玄武区中山路18号</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-clock text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>营业时间：10:00-22:00（周末无延长）</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-tags text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>定位：国际奢侈品购物中心</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-star text-blue-500 mr-2 w-5 text-center"></i>
+                    <span>特色：艺术展览、高端餐饮、网红洗手间</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二个商场：南京中央商场 -->
+        <section class="mall-card bg-white rounded-xl shadow-md overflow-hidden p-6 md:p-8">
+            <!-- 商场标题 -->
+            <div class="flex items-center mb-6">
+                <i class="fa-solid fa-store text-red-500 text-2xl mr-3"></i>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900">南京中央商场</h2>
+            </div>
+
+            <!-- 商场文字介绍 -->
+            <div class="mb-6">
+                <p class="text-gray-600 content-paragraph">
+                    南京中央商场始建于1936年，前身为“中央商场股份有限公司”，是南京历史最悠久的大型综合性商场之一，见证了新街口商圈近百年的发展。商场总建筑面积约10万平方米，以“亲民、时尚、全龄化”为定位，覆盖服饰、美妆、家电、儿童游乐、餐饮等全业态，是本地市民日常消费的首选场所。
+                </p>
+                <p class="text-gray-600 content-paragraph">
+                    作为“老字号”商场，中央商场在保留传统优势的同时不断创新：定期举办“老南京文化展”“惠民促销节”等活动；引入年轻潮流品牌吸引Z世代客群；负一楼“美食广场”汇集南京小吃与连锁餐饮，性价比高，成为周边上班族和学生的热门选择。
+                </p>
+            </div>
+
+            <!-- 双图展示（横版，可替换） -->
+            <div class="dual-image-container mb-6">
+                <img src="./images/zy-1.png"
+                     alt="南京中央商场沿街外观，具有传统商业建筑风格" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+                <img src="./images/zy-2.jpg" 
+                     alt="南京中央商场内部服饰楼层，品牌门店排列整齐" 
+                     class="hover:scale-[1.02] transition-transform duration-300">
+            </div>
+
+            <!-- 商场关键信息 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-location-dot text-red-500 mr-2 w-5 text-center"></i>
+                    <span>地址：南京市秦淮区中山南路79号</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-clock text-red-500 mr-2 w-5 text-center"></i>
+                    <span>营业时间：9:30-21:30（周五至周日延至22:00）</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-tags text-red-500 mr-2 w-5 text-center"></i>
+                    <span>定位：综合性大众购物中心</span>
+                </div>
+                <div class="flex items-center text-gray-700">
+                    <i class="fa-solid fa-star text-red-500 mr-2 w-5 text-center"></i>
+                    <span>特色：历史底蕴、惠民活动、高性价比餐饮</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 右下角功能按钮组 -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 z-10">
+        <!-- 返回上一页按钮 -->
+        <button onclick="window.history.back()" 
+                class="bg-gray-700 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-800 transition-colors"
+                title="返回上一页">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <!-- 回到顶部按钮 -->
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                class="bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition-colors"
+                title="回到顶部">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        // 图片加载失败处理
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.src = 'https://picsum.photos/600/400';
+                this.alt = '商场默认展示图';
+            });
+        });
+
+        // 页面加载动画
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease';
+        });
+    </script>
+
+</body>
+</html>
